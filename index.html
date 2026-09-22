@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5a160f">
+  <meta name="description" content="Ganapati Deeksha Mala - devotees who took Ganapati Deeksha during Vinayaka Chaturthi.">
+  <title>Ganapati Deeksha Mala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Noto+Sans+Telugu:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="mandala"></div>
+    <div class="hero-inner">
+      <div class="ganesha-mark" aria-hidden="true">
+        <span class="ear ear-left"></span>
+        <span class="ear ear-right"></span>
+        <span class="head"></span>
+        <span class="eye eye-left"></span>
+        <span class="eye eye-right"></span>
+        <span class="trunk"></span>
+        <span class="tusk tusk-left"></span>
+        <span class="tusk tusk-right"></span>
+      </div>
+
+      <p class="mantra">ॐ गं गणपतये नमः</p>
+      <h1>Ganapati Deeksha Mala</h1>
+      <p class="telugu">గణపతి దీక్ష మాల ధరించిన భక్తులు</p>
+      <p class="intro">
+        A humble record of devotees who undertook Ganapati Deeksha
+        during Vinayaka Chaturthi.
+      </p>
+
+      <a class="scroll-hint" href="#years">
+        <span>Explore the years</span>
+        <span class="arrow">↓</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="year-section" id="years">
+      <div class="section-heading">
+        <span class="ornament">✦</span>
+        <p class="eyebrow">Years of Deeksha</p>
+        <h2>Devotion Through the Years</h2>
+        <p>Select a year to see the devotees who wore the Ganapati mala.</p>
+      </div>
+
+      <div class="years-grid" id="yearsGrid"></div>
+    </section>
+
+    <section class="devotees-section hidden" id="devoteesSection">
+      <div class="devotees-header">
+        <button class="back-button" id="backButton" type="button">← All Years</button>
+        <div>
+          <p class="eyebrow">Ganapati Deeksha</p>
+          <h2 id="selectedYear"></h2>
+        </div>
+        <div class="count-badge" id="countBadge"></div>
+      </div>
+
+      <div class="devotees-card">
+        <div class="card-top">
+          <span>॥ श्री गणेशाय नमः ॥</span>
+          <span class="mala-symbol">✦</span>
+        </div>
+        <ol class="people-list" id="peopleList"></ol>
+        <div class="card-bottom">శ్రీ గణేశాయ నమః</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-line"></div>
+    <p>ॐ गं गणपतये नमः</p>
+    <small>Ganapati Deeksha • Vinayaka Chaturthi</small>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
