@@ -23,12 +23,12 @@ function renderYears() {
       <span class="count">${names.length} ${names.length === 1 ? "devotee" : "devotees"}</span>
     `;
 
-    card.addEventListener("click", () => showYear(year));
+    card.addEventListener("click", () => showYear(year, true));
     yearsGrid.appendChild(card);
   });
 }
 
-function showYear(year) {
+function showYear(year, addHistory = true) {
   const names = Array.isArray(peopleByYear[year]) ? peopleByYear[year] : [];
 
   selectedYear.textContent = year;
@@ -45,14 +45,44 @@ function showYear(year) {
   yearsGrid.parentElement.classList.add("hidden");
   devoteesSection.classList.remove("hidden");
 
-  window.scrollTo({ top: devoteesSection.offsetTop - 20, behavior: "smooth" });
+  // Add browser history entry when a year is selected
+  if (addHistory) {
+    history.pushState(
+      { page: "year", year: year },
+      "",
+      `#${year}`
+    );
+  }
+
+  window.scrollTo({
+    top: devoteesSection.offsetTop - 20,
+    behavior: "smooth"
+  });
 }
 
+// All Years button
 backButton.addEventListener("click", () => {
+  history.back();
+});
+
+// Mobile / browser Back button
+window.addEventListener("popstate", (event) => {
+  if (event.state && event.state.page === "year") {
+    showYear(event.state.year, false);
+  } else {
+    showAllYears();
+  }
+});
+
+function showAllYears() {
   devoteesSection.classList.add("hidden");
   yearsGrid.parentElement.classList.remove("hidden");
-  window.scrollTo({ top: document.getElementById("years").offsetTop - 10, behavior: "smooth" });
-});
+
+  window.scrollTo({
+    top: document.getElementById("years").offsetTop - 10,
+    behavior: "smooth"
+  });
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -78,3 +108,6 @@ for (let i = 0; i < 28; i++) {
 }
 
 renderYears();
+
+// Start on All Years page
+history.replaceState({ page: "years" }, "", "#years");
